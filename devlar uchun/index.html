@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTMLUZ — Test Platformasi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+
+        <!-- HOME -->
+        <div id="home" class="home">
+            <div class="logo-wrap">
+                <h1>HTMLUZ</h1>
+                <p>Veb dasturlash bo'yicha interaktiv test platformasi</p>
+            </div>
+            <div class="cards-row" id="cards-row"></div>
+        </div>
+
+        <!-- QUIZ -->
+        <div id="quiz" class="quiz-screen hidden">
+            <div class="quiz-top">
+                <button class="back-btn" onclick="goHome()">← Orqaga</button>
+                <span class="quiz-title" id="quiz-title"></span>
+                <div class="quiz-score-display">💎 <span id="score-display">0</span></div>
+            </div>
+            <div class="progress-strip"><div class="progress-fill" id="progress-fill"></div></div>
+            <div class="question-card">
+                <div class="q-meta">
+                    <span id="q-level"></span>
+                    <span id="q-num"></span>
+                </div>
+                <div class="q-text" id="q-text"></div>
+                <div class="options-grid" id="options"></div>
+                <div id="feedback" class="hidden"></div>
+                <button id="next-btn" class="next-btn hidden" onclick="nextQuestion()">Keyingi savol →</button>
+            </div>
+        </div>
+
+        <!-- RESULT -->
+        <div id="result" class="result-screen hidden">
+            <div class="trophy" id="trophy">🏆</div>
+            <div class="badge-name" id="badge-name"></div>
+            <div class="badge-sub" id="badge-sub"></div>
+            <div class="stats-row">
+                <div class="stat-box">
+                    <div class="stat-num" id="res-score" style="color:var(--gold)"></div>
+                    <div class="stat-label">Ball</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-num" id="res-correct" style="color:var(--green)"></div>
+                    <div class="stat-label">To'g'ri</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-num" id="res-wrong" style="color:var(--red)"></div>
+                    <div class="stat-label">Noto'g'ri</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-num" id="res-pct"></div>
+                    <div class="stat-label">Foiz</div>
+                </div>
+            </div>
+            <div class="result-actions">
+                <button class="res-btn secondary" onclick="goHome()">🏠 Bosh sahifa</button>
+                <button class="res-btn" id="retry-btn" onclick="retryQuiz()">🔄 Qayta urinish</button>
+            </div>
+        </div>
+
+        <!-- ALL DONE -->
+        <div id="all-done" class="all-done hidden">
+            <div class="all-done-emoji">🎉</div>
+            <h2>Tabriklaymiz!</h2>
+            <p>Siz barcha mavjud testlarni ishlab bo'ldingiz. Yangi testlar va yangilanishlar qo'shilishini kuting.</p>
+            <div class="badges-row" id="all-badges"></div>
+            <button class="res-btn secondary" onclick="goHome()">🏠 Bosh sahifaga qaytish</button>
+        </div>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
